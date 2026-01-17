@@ -29,9 +29,28 @@ export class UsersService {
     return this.users.find((user) => user.email === email);
   }
 
-  async createUser(email: string, password: string, role: Role = Role.Customer): Promise<User> {
+  async createUser(
+    email: string,
+    password: string,
+    role: Role = Role.Customer,
+    ownerName?: string,
+    shopName?: string,
+    shopAddress?: string,
+    city?: string,
+    shopLocation?: string,
+  ): Promise<User> {
     const id = this.users.length + 1;
-    const user: User = { id, email, password, role };
+    const user: User = {
+      id,
+      email,
+      password,
+      role,
+      ownerName,
+      shopName,
+      shopAddress,
+      city,
+      shopLocation,
+    };
     this.users.push(user);
     return user;
   }

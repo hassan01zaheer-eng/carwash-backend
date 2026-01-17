@@ -1,0 +1,23 @@
+# Registration API URLs and Example Bodies
+
+# Customer Registration
+POST /auth/signup
+{
+  "email": "customer1@example.com",
+  "password": "customerpass"
+}
+
+# Shop Owner Registration
+POST /auth/signup
+{
+  "email": "owner1@example.com",
+  "password": "ownerpass",
+  "role": "shop-owner",
+  "ownerName": "Owner One",
+  "shopName": "Super Car Wash",
+  "shopAddress": "456 Main St",
+  "city": "Gotham",
+  "shopLocation": "40.7128,-74.0060"
+}
+
+# Admin Registration (via script, see below)
