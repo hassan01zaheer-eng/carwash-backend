@@ -1,0 +1,54 @@
+### Example HTTP requests for testing all endpoints
+
+# 1. Signup (Customer)
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "testcustomer@example.com",
+  "password": "testpass"
+}
+
+# 2. Signup (Shop Owner)
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "testowner@example.com",
+  "password": "testpass",
+  "role": "shop-owner"
+}
+
+# 3. Signup (Admin)
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "testadmin@example.com",
+  "password": "testpass",
+  "role": "admin"
+}
+
+# 4. Login (any user)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "testcustomer@example.com",
+  "password": "testpass"
+}
+
+# 5. Access Customer Endpoint (replace <token> with JWT from login)
+GET http://localhost:3000/test/customer
+Authorization: Bearer <token>
+
+# 6. Access Shop Owner Endpoint (replace <token> with JWT from login)
+GET http://localhost:3000/test/owner
+Authorization: Bearer <token>
+
+# 7. Access Admin Endpoint (replace <token> with JWT from login)
+GET http://localhost:3000/test/admin
+Authorization: Bearer <token>
+
+# 8. Root Endpoint
+GET http://localhost:3000/
