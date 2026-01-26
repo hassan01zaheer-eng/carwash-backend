@@ -1,5 +1,6 @@
 
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
@@ -22,6 +23,16 @@ import { UsersService } from './users/users.service';
     JwtModule.register({
       secret: process.env.JWT_SECRET || 'secret',
       signOptions: { expiresIn: '1h' },
+    }),
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'sql7.freesqldatabase.com',
+      port: 3306,
+      username: 'sql7815105',
+      password: 'Gve2bgWc9e',
+      database: 'sql7815105',
+      autoLoadEntities: true,
+      synchronize: true, // Set to false in production
     }),
   ],
   controllers: [AppController, TestController, AuthController],
